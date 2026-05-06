@@ -1,4 +1,4 @@
-# http-recon-misconfig.nse
+# http-scout.nse
 
 HTTP/HTTPS servisleri için akıllı bir Nmap NSE recon ve yanlış yapılandırma tespit scripti.
 
@@ -30,7 +30,7 @@ HTTP/HTTPS servislerine karşı pasif, müdahalesiz keşif gerçekleştirir. Bru
 ## Kurulum
 
 ```bash
-cp http-recon-misconfig.nse /usr/share/nmap/scripts/
+cp http-scout.nse /usr/share/nmap/scripts/
 nmap --script-updatedb
 ```
 
@@ -40,13 +40,13 @@ nmap --script-updatedb
 
 ```bash
 # Tek hedef
-nmap -p 80,443 --script http-recon-misconfig.nse <hedef>
+nmap -p 80,443 --script http-scout <hedef>
 
 # Servis tespiti ile birlikte
-nmap -sV -p 80,443 --script http-recon-misconfig.nse <hedef>
+nmap -sV -p 80,443 --script http-scout <hedef>
 
 # Özel user-agent ile
-nmap -p 80 --script http-recon-misconfig.nse \
+nmap -p 80 --script http-scout \
   --script-args http.useragent="Mozilla/5.0" <hedef>
 ```
 
@@ -57,7 +57,7 @@ nmap -p 80 --script http-recon-misconfig.nse \
 ```
 PORT   STATE SERVICE
 80/tcp open  http
-| http-recon-misconfig:
+| http-scout:
 |   [+] Server: nginx/1.18.0
 |   [+] X-Powered-By: PHP/8.1.2
 |   [INFO] Detected Tech: nginx + PHP + WordPress
