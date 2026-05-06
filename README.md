@@ -1,13 +1,12 @@
-# http-recon-misconfig.nse
+# http-scout.nse
 
 A smart, production-ready Nmap NSE script for HTTP/HTTPS recon and basic misconfiguration detection.
 
 > **Category:** Recon & Basic Misconfiguration  
-> **Author:** 7nhn  
-> **License:** Same as Nmap
+> **Author:** 7nhn 
 
 <p align="right">
-  <a href="./README.tr.md">🇹🇷 Türkçe README için tıklayın</a>
+  <a href="./README.tr.md">Türkçe README için tıklayın</a>
 </p>
 
 ---
@@ -35,7 +34,7 @@ Performs passive, non-intrusive reconnaissance against HTTP/HTTPS services. No b
 ## Installation
 
 ```bash
-cp http-recon-misconfig.nse /usr/share/nmap/scripts/
+cp http-scout.nse /usr/share/nmap/scripts/
 nmap --script-updatedb
 ```
 
@@ -45,13 +44,13 @@ nmap --script-updatedb
 
 ```bash
 # Single target
-nmap -p 80,443 --script http-recon-misconfig.nse <target>
+nmap -p 80,443 --script http-scout <target>
 
 # With service detection
-nmap -sV -p 80,443 --script http-recon-misconfig.nse <target>
+nmap -sV -p 80,443 --script http-scout <target>
 
 # Custom user-agent
-nmap -p 80 --script http-recon-misconfig.nse \
+nmap -p 80 --script http-scout \
   --script-args http.useragent="Mozilla/5.0" <target>
 ```
 
@@ -62,7 +61,7 @@ nmap -p 80 --script http-recon-misconfig.nse \
 ```
 PORT   STATE SERVICE
 80/tcp open  http
-| http-recon-misconfig:
+| http-scout:
 |   [+] Server: nginx/1.18.0
 |   [+] X-Powered-By: PHP/8.1.2
 |   [INFO] Detected Tech: nginx + PHP + WordPress
